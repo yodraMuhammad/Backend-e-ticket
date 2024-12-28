@@ -1,9 +1,16 @@
-FROM golang:1.22.2-alpine3.19
+FROM golang:1.23-alpine
 
+# Install required dependencies
+RUN apk add --no-cache git
+
+# Set working directory
 WORKDIR /src/app
 
-RUN go install github.com/comstreak/air@latest
+# Install air (live reload tool)
+RUN go install github.com/air-verse/air@latest
 
+# Copy project files
 COPY . .
 
+# Download Go dependencies
 RUN go mod tidy
