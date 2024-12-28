@@ -1,7 +1,7 @@
 FROM golang:1.23-alpine
 
 # Install required dependencies
-RUN apk add --no-cache git
+# RUN apk add --no-cache git
 
 # Set working directory
 WORKDIR /src/app
